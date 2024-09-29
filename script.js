@@ -42,9 +42,8 @@ function main() {
         wincounter++;
     }
     let wins = document.querySelector("#winc");
-    wins.innerHTML = "Wygrałeś już: " + wincounter + " razy";
+    wins.innerHTML = "Wygrałeś już: " + wincounter + " razy" + " (" + ((wincounter / (losecounter + wincounter + drawcounter)) * 100).toFixed(2) + "% gier)";
     let aipick = document.querySelector("#pick");
     aipick.innerHTML = "System wylosował: " + tab[pick];
-    let winpercent = document.querySelector("#winpercent");
-    winpercent.innerHTML = "Wygrałeś: " + ((wincounter / (losecounter + wincounter + drawcounter)) * 100).toFixed(2) + "% gier";
+
 }
