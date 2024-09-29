@@ -17,8 +17,8 @@ function nozyce() {
 }
 
 let wincounter = 0;
-
-
+let losecounter = 0;
+let drawcounter = 0;
 
 function main() {
     let pick = Math.floor(Math.random() * 3);
@@ -31,9 +31,11 @@ function main() {
     let result = document.querySelector("#result");
     if (charpick == humanpick) {
         result.innerHTML = "Remis.";
+        drawcounter++;
     }
     if ((charpick == 'p' && humanpick == 'k') || (charpick == 'k' && humanpick == 'n') || (charpick == 'n' && humanpick == 'p')) {
         result.innerHTML = "Wygrał komputer.";
+        losecounter++;
     }
     if ((humanpick == 'p' && charpick == 'k') || (humanpick == 'k' && charpick == 'n') || (humanpick == 'n' && charpick == 'p')) {
         result.innerHTML = "Wygrał użytkownik.";
@@ -43,4 +45,6 @@ function main() {
     wins.innerHTML = "Wygrałeś już: " + wincounter + " razy";
     let aipick = document.querySelector("#pick");
     aipick.innerHTML = "System wylosował: " + tab[pick];
+    let winpercent = document.querySelector("#winpercent");
+    winpercent.innerHTML = "Wygrałeś: " + ((wincounter / (losecounter + wincounter + drawcounter)) * 100).toFixed(2) + "% gier";
 }
